@@ -149,3 +149,22 @@ const createReverseFibonacciSeries = function(noOfTerms){
 }
 exports.createReverseFibonacciSeries = createReverseFibonacciSeries;
 
+//function to determine greatest number in a list
+const findMax = function(numbers){
+    return sortNumbers(numbers,"ascending").pop();
+}
+exports.findMax = findMax;
+
+//function to determine smallest number in a list
+const findMin = function(numbers){
+    return sortNumbers(numbers,"descending").pop();
+}
+exports.findMin = findMin;
+
+//function to calculate average of numbers
+const calculateAverage = function(numbers){
+  average = addNumbers(numbers)/numbers.length;
+  average = average.toFixed(2);
+  return average;
+}
+exports.calculateAverage = calculateAverage;

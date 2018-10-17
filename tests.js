@@ -9,7 +9,9 @@ let filterNumbers = arrayFunctions.filterNumbers;
 let insertElement = arrayFunctions.insertElement;
 let deleteElement = arrayFunctions.deleteElement;
 let sortNumbers = arrayFunctions.sortNumbers;
-
+let findMax = arrayFunctions.findMax;
+let findMin = arrayFunctions.findMin;
+let calculateAverage = arrayFunctions.calculateAverage
 //-----------------------------------------------  //tests for sorting numbers
 {
   {
@@ -208,6 +210,50 @@ let sortNumbers = arrayFunctions.sortNumbers;
     let input = 2;
     let expectedOutput = [1,0];
     let actualOutput = createReverseFibonacciSeries(input);
+    assert.deepEqual(actualOutput,expectedOutput);
+  }
+}
+
+//------------------------------------------tests for determining greatest  and smallest number in a list. 
+{
+  {
+    let input = [1,2,4,3,6,5];
+    let expectedOutput = 6;
+    let actualOutput = findMax(input)
+    assert.deepEqual(actualOutput,expectedOutput);
+  }
+  {
+    let input = [1,2,4,3,6,5];
+    let expectedOutput = 1;
+    let actualOutput = findMin(input)
+    assert.deepEqual(actualOutput,expectedOutput);
+  }
+  {
+    let input = [];
+    let expectedOutput = undefined;
+    let actualOutput = findMin(input)
+    assert.deepEqual(actualOutput,expectedOutput);
+  }
+  {
+    let input = [];
+    let expectedOutput = undefined;
+    let actualOutput = findMax(input)
+    assert.deepEqual(actualOutput,expectedOutput);
+  }
+
+}
+
+//-------------------tests to calculate average of given numbers
+{
+  {
+    let input = [1,2,3,4,5]
+    let expectedOutput = 3;
+    let actualOutput = calculateAverage(input);
+  }
+  {
+    let input =  [-1,-2,2,1];
+    let expectedOutput = 0;
+    let actualOutput = calculateAverage(input);
     assert.deepEqual(actualOutput,expectedOutput);
   }
 }
