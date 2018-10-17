@@ -119,10 +119,33 @@ exports.reverseList = reverseList;
 //function to return every second element of an array
 const extractAlternatingElements = function(numbers){
   let extractedElements = {};
-  extractedElements["1"] = [];
+  extractedElements[1] = [];
+  extractedElements[0] = [];
   for(index in numbers){
-    extractedElements[index%2] = numbers[index];
+    extractedElements[index%2].push(numbers[index]);
   }
-  return extractedElements.1;
+  return extractedElements[0];
 }
+exports.extractAlternatingElements = extractAlternatingElements;
+
+//function to generate fibonacci series
+const generateFibonacciSeries = function(noOfTerms){
+  let a = -1;
+  let b = 1;
+  let series = [];
+  for (let count = 0; count<noOfTerms; count++){
+    nextTerm = a+b;
+    series.push(nextTerm);
+    a = b;
+    b = nextTerm;
+  }
+  return series;
+}
+
+//function to generate reverse fibonacci series 
+const createReverseFibonacciSeries = function(noOfTerms){
+  let series = reverseList(generateFibonacciSeries(noOfTerms));
+  return series;
+}
+exports.createReverseFibonacciSeries = createReverseFibonacciSeries;
 
