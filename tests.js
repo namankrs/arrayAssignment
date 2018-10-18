@@ -282,7 +282,8 @@ let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,ge
   const testCountNumbersAbove = function(input,threshold,output){
     assert.deepEqual(countNumbersAbove(input,threshold),output);
   }
-  testCountNumbersAbove([1,2,3,4,5],2,3)
+  testCountNumbersAbove([1,2,3,4,5],2,3);
+  testCountNumbersAbove([],1,0);
 }
 
 //------------tests for countNumbersBelow()
@@ -290,6 +291,7 @@ let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,ge
   const testCounterNumbersBelow = function(input,threshold,output){
     assert.deepEqual(countNumbersBelow(input,threshold),output);
   }
-  testCounterNumbersBelow([1,2,3,4,5],2,1)
+  testCounterNumbersBelow([1,2,3,4,5],2,1);
+  testCounterNumbersBelow([],0,0);
 }
 
