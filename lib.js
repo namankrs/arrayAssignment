@@ -169,6 +169,7 @@ const calculateAverage = function(numbers){
 }
 exports.calculateAverage = calculateAverage;
 
+//function to calculate lengths of given strings
 const getLengths = function(strings){
   let lengths = [];
   for(string of strings){
@@ -177,3 +178,43 @@ const getLengths = function(strings){
   return lengths;
 }
 exports.getLengths = getLengths;
+
+//function to count the odd numbers in a list
+const countOddNumbers = function(numbers){
+  let count = 0;
+  count = filterNumbers(numbers,"odd").length;
+  return count;
+}
+exports.countOddNumbers = countOddNumbers;
+
+//function to count the even numbers in a list
+const countEvenNumbers = function(numbers){
+  let count = 0;
+  count = filterNumbers(numbers,"even").length;
+  return count;
+}
+exports.countEvenNumbers = countEvenNumbers;
+
+//function to count numbers above certain threshold
+const countNumbersAbove = function(numbers,threshold){
+  let count = 0;
+  for(number of numbers){
+    number>threshold && count++;
+  }
+  return count;
+}
+exports.countNumbersAbove = countNumbersAbove;
+
+//function to count numbers below certain threshold
+const countNumbersBelow = function(numbers,threshold){
+  let count = 0;
+  for(number of numbers){
+    number<threshold && count++;
+  }
+  return count;
+}
+exports.countNumbersBelow = countNumbersBelow;
+
+
+
+

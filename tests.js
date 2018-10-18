@@ -1,18 +1,9 @@
 let assert = require("assert");
 let arrayFunctions = require("./lib.js");
 
-let createReverseFibonacciSeries = arrayFunctions.createReverseFibonacciSeries;
-let extractAlternatingElements = arrayFunctions.extractAlternatingElements;
-let reverseList = arrayFunctions.reverseList;
-let addNumbers = arrayFunctions.addNumbers;
-let filterNumbers = arrayFunctions.filterNumbers;
-let insertElement = arrayFunctions.insertElement;
-let deleteElement = arrayFunctions.deleteElement;
-let sortNumbers = arrayFunctions.sortNumbers;
-let findMax = arrayFunctions.findMax;
-let findMin = arrayFunctions.findMin;
-let calculateAverage = arrayFunctions.calculateAverage;
-let getLengths = arrayFunctions.getLengths;
+let {createReverseFibonacciSeries,extractAlternatingElements,reverseList,addNumbers,filterNumbers} = arrayFunctions;
+let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers,countEvenNumbers,countNumbersAbove,countNumbersBelow} = arrayFunctions;
+
 //-----------------------------------------------  //tests for sorting numbers
 {
   {
@@ -259,15 +250,46 @@ let getLengths = arrayFunctions.getLengths;
   }
 }
 
-//--------------tests for calculating lenghts of given strings
+//--------------tests for calculating lengths of given strings
 {
   const testgetLengths = function(input,expectedOutput){
     assert.deepEqual(getLengths(input),expectedOutput);
   }
-
   testgetLengths(["naman","rahul","chandan"],[5,5,7]);
   testgetLengths([],[]);
-  
 }
   
-  
+//------------tests for counting odd numbers in a list
+{
+  const testCountOddNumbers = function(input,output){
+    assert.deepEqual(countOddNumbers(input),output)
+  }
+  testCountOddNumbers([1,2,3,4,5],3);
+  testCountOddNumbers([2,4],0);
+}
+
+//------------tests for counting even numbers in a list
+{
+  const testCountEvenNumbers = function(input,output){
+    assert.deepEqual(countEvenNumbers(input),output);
+  }
+  testCountEvenNumbers([1,2,3,4,5],2);
+  testCountEvenNumbers([1,3],0);
+}
+
+//------------tests for countNumbersAbove()
+{
+  const testCountNumbersAbove = function(input,threshold,output){
+    assert.deepEqual(countNumbersAbove(input,threshold),output);
+  }
+  testCountNumbersAbove([1,2,3,4,5],2,3)
+}
+
+//------------tests for countNumbersBelow()
+{
+  const testCounterNumbersBelow = function(input,threshold,output){
+    assert.deepEqual(countNumbersBelow(input,threshold),output);
+  }
+  testCounterNumbersBelow([1,2,3,4,5],2,1)
+}
+
