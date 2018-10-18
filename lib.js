@@ -168,3 +168,12 @@ const calculateAverage = function(numbers){
   return average;
 }
 exports.calculateAverage = calculateAverage;
+
+const getLengths = function(strings){
+  let lengths = [];
+  for(string of strings){
+    lengths.push(string.length)
+  }
+  return lengths;
+}
+exports.getLengths = getLengths;

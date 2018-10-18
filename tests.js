@@ -11,7 +11,8 @@ let deleteElement = arrayFunctions.deleteElement;
 let sortNumbers = arrayFunctions.sortNumbers;
 let findMax = arrayFunctions.findMax;
 let findMin = arrayFunctions.findMin;
-let calculateAverage = arrayFunctions.calculateAverage
+let calculateAverage = arrayFunctions.calculateAverage;
+let getLengths = arrayFunctions.getLengths;
 //-----------------------------------------------  //tests for sorting numbers
 {
   {
@@ -257,3 +258,16 @@ let calculateAverage = arrayFunctions.calculateAverage
     assert.deepEqual(actualOutput,expectedOutput);
   }
 }
+
+//--------------tests for calculating lenghts of given strings
+{
+  const testgetLengths = function(input,expectedOutput){
+    assert.deepEqual(getLengths(input),expectedOutput);
+  }
+
+  testgetLengths(["naman","rahul","chandan"],[5,5,7]);
+  testgetLengths([],[]);
+  
+}
+  
+  
