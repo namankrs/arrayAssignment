@@ -215,6 +215,36 @@ const countNumbersBelow = function(numbers,threshold){
 }
 exports.countNumbersBelow = countNumbersBelow;
 
+//function to find index of a number in a given list.
+const findIndex = function(numbers,number){
+  for(index in numbers){
+    if(numbers[index] == number){
+    return (index);
+    }
+  }
+  return -1;
+}
+exports.findIndex = findIndex;
 
+//function to check whether given numbers are in ascending order or not
+const isOrderAscending = function(numbers){
+  for (let index = 0; index < numbers.length -1 ; index++){
+    if(numbers[index]>numbers[index+1]){ 
+      return false;
+    }
+  }
+  return true;
+}
+exports.isOrderAscending = isOrderAscending;
 
+//function to check whether given numbers are in descending order or not
+const isOrderDescending = function(numbers){
+  for (let index = 0; index < numbers.length -1 ; index++){
+    if(numbers[index]<numbers[index+1]){ 
+      return false;
+    }
+  }
+  return true;
+}
+exports.isOrderDescending = isOrderDescending;
 

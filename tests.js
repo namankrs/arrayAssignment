@@ -2,7 +2,7 @@ let assert = require("assert");
 let arrayFunctions = require("./lib.js");
 
 let {createReverseFibonacciSeries,extractAlternatingElements,reverseList,addNumbers,filterNumbers} = arrayFunctions;
-let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers,countEvenNumbers,countNumbersAbove,countNumbersBelow} = arrayFunctions;
+let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers,countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending} = arrayFunctions;
 
 //-----------------------------------------------  //tests for sorting numbers
 {
@@ -293,5 +293,35 @@ let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,ge
   }
   testCounterNumbersBelow([1,2,3,4,5],2,1);
   testCounterNumbersBelow([],0,0);
+}
+
+//----------------test for finding index of a given number
+{
+  const testFindIndex = function(numbers,number,expectedOutput){
+    assert.deepEqual(findIndex(numbers,number),expectedOutput);
+  }
+  testFindIndex([1,2,3,4],3,2);
+  testFindIndex([1,2,3,4],5,-1);
+}
+
+//--------------test for isOrderAscending()
+{
+  const testIsOrderAscending = function(numbers,expectedOutput){
+    assert.deepEqual(isOrderAscending(numbers),expectedOutput);
+  }
+  testIsOrderAscending([1,2,3,4],true);
+  testIsOrderAscending([1,4,2,4],false);
+  testIsOrderAscending([],true);
+}
+
+//--------------test for isOrderDescending()
+{
+  const testIsOrderDescending = function(numbers,expectedOutput){
+    assert.deepEqual(isOrderDescending(numbers),expectedOutput);
+  }
+  testIsOrderDescending([1,2,3,4],false);
+  testIsOrderDescending([1,4,2,4],false);
+  testIsOrderDescending([],true);
+  testIsOrderDescending([8,5,3,1],true);
 }
 
