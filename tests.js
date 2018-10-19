@@ -3,7 +3,7 @@ let arrayFunctions = require("./lib.js");
 
 let {createReverseFibonacciSeries,extractAlternatingElements,reverseList,addNumbers,filterNumbers} = arrayFunctions;
 let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers} = arrayFunctions;
-let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending,extractDigits,extractUniques,unifyElements,findIntersection} = arrayFunctions;
+let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending,extractDigits,extractUniques,unifyElements,findIntersection,filterDifferences} = arrayFunctions;
 
 //-----------------------------------------------  //tests for sorting numbers
 {
@@ -364,4 +364,14 @@ let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscen
   testFindIntersection([1,2,3,4,5],[3,4,5,6,7],[3,4,5]);
   testFindIntersection([3,4,5],[3,4,5],[3,4,5]);
   testFindIntersection([3,4,5],[],[]);
+}
+
+//-------------tests for filterDifferences()
+{
+  const testFilterDifferences = function(input1,input2,expectedOutput){
+    assert.deepEqual(filterDifferences(input1,input2),expectedOutput);
+  }
+  testFilterDifferences([1,2],[2,3],[1]);
+  testFilterDifferences([1,2,3,4,5],[2,3,5,6],[1,4]);
+  testFilterDifferences([1,2],[1,2,3],[]);
 }

@@ -289,3 +289,13 @@ const findIntersection = function(firstList,secondList){
   return commonNumbers;
 }
 exports.findIntersection = findIntersection;
+
+//function to find unique elements in first array only i.e difference of two arrays
+const filterDifferences = function(firstList,secondList){
+  let uniques = [];
+  for(number of firstList){
+    !secondList.includes(number) && uniques.push(number);
+  }
+  return uniques;
+}
+exports.filterDifferences = filterDifferences;
