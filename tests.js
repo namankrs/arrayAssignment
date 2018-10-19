@@ -4,7 +4,7 @@ let arrayFunctions = require("./lib.js");
 let {createReverseFibonacciSeries,extractAlternatingElements,reverseList,addNumbers,filterNumbers} = arrayFunctions;
 let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers} = arrayFunctions;
 let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending} = arrayFunctions;
-let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferences,isSubset,zipNumbers,rotateElements} = arrayFunctions;
+let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferences,isSubset,zipNumbers,rotateElements,splitNumbers} = arrayFunctions;
 //-----------------------------------------------  //tests for sorting numbers
 {
   {
@@ -408,3 +408,14 @@ let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferenc
   testRotateNumbers([-1,2,-3,4],2,[-3,4,-1,2]);
   testRotateNumbers([],0,[]);
 }
+
+//------------tests for partioning a array based on comparison to an element
+{
+  const testSplitNumbers = function(numbers,value,expectedOutput){
+    assert.deepEqual(splitNumbers(numbers,value),expectedOutput);
+  }
+  testSplitNumbers([1,2,3,4],2,[[1,2],[3,4]])
+  testSplitNumbers([1,5,8,6,7,2,3,4],5,[[1,5,2,3,4],[8,6,7]])
+}
+
+console.log('All tests passed');

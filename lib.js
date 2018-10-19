@@ -329,3 +329,15 @@ const rotateElements = function(numbers,index){
   return numbers;
 }
 exports.rotateElements = rotateElements;
+
+//function to partition a array based on a value
+const splitNumbers = function(numbers,value){
+  let firstPart = [];
+  let lastPart = [];
+  for(let number of numbers){
+    number<=value && firstPart.push(number);
+    number>value && lastPart.push(number);
+  }
+  return [firstPart,lastPart];
+}
+exports.splitNumbers = splitNumbers;
