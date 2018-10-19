@@ -3,7 +3,7 @@ let arrayFunctions = require("./lib.js");
 
 let {createReverseFibonacciSeries,extractAlternatingElements,reverseList,addNumbers,filterNumbers} = arrayFunctions;
 let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers} = arrayFunctions;
-let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending,extractDigits,extractUniques,unifyElements,findIntersection,filterDifferences} = arrayFunctions;
+let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending,extractDigits,extractUniques,unifyElements,findIntersection,filterDifferences,isSubset} = arrayFunctions;
 
 //-----------------------------------------------  //tests for sorting numbers
 {
@@ -374,4 +374,17 @@ let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscen
   testFilterDifferences([1,2],[2,3],[1]);
   testFilterDifferences([1,2,3,4,5],[2,3,5,6],[1,4]);
   testFilterDifferences([1,2],[1,2,3],[]);
+}
+
+//--------------tests for isSubset()
+{
+  const testIsSubset = function(list2,list1,expectedOutput){
+    assert.deepEqual(isSubset(list2,list1),expectedOutput);
+  }
+  testIsSubset([1,2],[0,1,2,3,],true)
+  testIsSubset([],[0,1,2,3,],true)
+  testIsSubset([2,3,4],[0,1,2,3,],false)
+
+  
+
 }

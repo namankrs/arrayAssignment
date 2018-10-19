@@ -299,3 +299,13 @@ const filterDifferences = function(firstList,secondList){
   return uniques;
 }
 exports.filterDifferences = filterDifferences;
+
+//test to check whether a set is a proper subset of another set or not
+const isSubset = function(list2,list1){
+  let result = true;
+  for(number of list2){
+    (!list1.includes(number)) && (result=false);
+  }
+  return result;
+}
+exports.isSubset = isSubset;
