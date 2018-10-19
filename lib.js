@@ -320,3 +320,12 @@ const zipNumbers = function(list1,list2){
   return zippedNumbers;
 }
 exports.zipNumbers = zipNumbers;
+
+const rotateElements = function(numbers,index){
+  let length = numbers.length;
+  for(let count = numbers.length-1; count>=index; count--){
+    numbers.unshift(numbers.pop());
+  }
+  return numbers;
+}
+exports.rotateElements = rotateElements;

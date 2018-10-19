@@ -4,7 +4,7 @@ let arrayFunctions = require("./lib.js");
 let {createReverseFibonacciSeries,extractAlternatingElements,reverseList,addNumbers,filterNumbers} = arrayFunctions;
 let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers} = arrayFunctions;
 let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending} = arrayFunctions;
-let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferences,isSubset,zipNumbers} = arrayFunctions;
+let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferences,isSubset,zipNumbers,rotateElements} = arrayFunctions;
 //-----------------------------------------------  //tests for sorting numbers
 {
   {
@@ -397,4 +397,14 @@ let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferenc
   
   testZipNumbers([1,2],[3,4],[[1,3],[2,4]]);
   testZipNumbers([1,3,2],[3,5,4],[[1,3],[3,5],[2,4]]);
+}
+
+//----------test for rotating elements of a array from given index
+{
+  const testRotateNumbers = function(numbers,index,expectedOutput){
+    assert.deepEqual(rotateElements(numbers,index),expectedOutput);
+  }
+  testRotateNumbers([1,2,3,4],2,[3,4,1,2]);
+  testRotateNumbers([-1,2,-3,4],2,[-3,4,-1,2]);
+  testRotateNumbers([],0,[]);
 }
