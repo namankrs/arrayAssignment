@@ -362,4 +362,6 @@ let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscen
     assert.deepEqual(findIntersection(input1,input2),expectedOutput);
   }
   testFindIntersection([1,2,3,4,5],[3,4,5,6,7],[3,4,5]);
+  testFindIntersection([3,4,5],[3,4,5],[3,4,5]);
+  testFindIntersection([3,4,5],[],[]);
 }
