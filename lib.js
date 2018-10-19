@@ -248,3 +248,13 @@ const isOrderDescending = function(numbers){
 }
 exports.isOrderDescending = isOrderDescending;
 
+//function to extract digits of a number in an array
+const extractDigits = function(number){
+  let numberString = number.toString();
+  let numbers = [];
+  for(let digits of numberString){
+    numbers.push(+digits);
+  }
+  return numbers;
+}
+exports.extractDigits = extractDigits;

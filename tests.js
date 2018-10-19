@@ -2,7 +2,7 @@ let assert = require("assert");
 let arrayFunctions = require("./lib.js");
 
 let {createReverseFibonacciSeries,extractAlternatingElements,reverseList,addNumbers,filterNumbers} = arrayFunctions;
-let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers,countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending} = arrayFunctions;
+let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers,countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending,extractDigits} = arrayFunctions;
 
 //-----------------------------------------------  //tests for sorting numbers
 {
@@ -323,5 +323,13 @@ let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,ge
   testIsOrderDescending([1,4,2,4],false);
   testIsOrderDescending([],true);
   testIsOrderDescending([8,5,3,1],true);
+}
+
+//----------------test for extractdigits();
+{
+  const testExtractDigits = function(input,expectedOutput){
+    assert.deepEqual(extractDigits(input),expectedOutput);
+  }
+  testExtractDigits(123,[1,2,3]);
 }
 
