@@ -2,7 +2,8 @@ let assert = require("assert");
 let arrayFunctions = require("./lib.js");
 
 let {createReverseFibonacciSeries,extractAlternatingElements,reverseList,addNumbers,filterNumbers} = arrayFunctions;
-let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers,countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending,extractDigits} = arrayFunctions;
+let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers} = arrayFunctions;
+let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending,extractDigits,extractUniques,unifyElements,findIntersection} = arrayFunctions;
 
 //-----------------------------------------------  //tests for sorting numbers
 {
@@ -331,5 +332,34 @@ let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,ge
     assert.deepEqual(extractDigits(input),expectedOutput);
   }
   testExtractDigits(123,[1,2,3]);
+  testExtractDigits(1,[1]);
 }
 
+//------------test for returning unique element of an array
+{
+  const testExtractUniques = function(input,expectedOutput){
+    assert.deepEqual(extractUniques(input),expectedOutput);
+  }
+  testExtractUniques([1,2,1,2],[1,2])
+  testExtractUniques([1,3,3,3,1,4,5,2,1,2],[1,3,4,5,2])
+  testExtractUniques([1],[1])
+  testExtractUniques([2,2,2,2,2,2,2,2,2],[2])
+}
+
+//---------------tests for unifyElements()
+{
+  const testUnifyElements = function(input1,input2,expectedOutput){
+    assert.deepEqual(unifyElements(input1,input2),expectedOutput)
+  }
+  testUnifyElements([1,2,3,4],[3,4,5,6],[1,2,3,4,5,6]);
+  testUnifyElements([1,2,3,4],[],[1,2,3,4]);
+  testUnifyElements([1,2,3,4],[1,2,3,4],[1,2,3,4]);
+}
+
+//----------------tests for findIntersection()
+{
+  const testFindIntersection = function(input1,input2,expectedOutput){
+    assert.deepEqual(findIntersection(input1,input2),expectedOutput);
+  }
+  testFindIntersection([1,2,3,4,5],[3,4,5,6,7],[3,4,5]);
+}

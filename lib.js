@@ -258,3 +258,34 @@ const extractDigits = function(number){
   return numbers;
 }
 exports.extractDigits = extractDigits;
+
+//function to extract unique elements from an array
+const extractUniques = function(numbers){
+  let uniqueNumbers = [];
+  for(number of numbers){
+    !uniqueNumbers.includes(number) && uniqueNumbers.push(number);
+}
+return uniqueNumbers;
+}
+exports.extractUniques = extractUniques;
+
+//function to create union array from two arrays
+const unifyElements = function(firstList,secondList){
+  let unionList = firstList;
+  for(let number of secondList){
+    unionList.push(number);
+  }
+  unionList = extractUniques(unionList);
+  return unionList;
+}
+exports.unifyElements = unifyElements;
+
+//function to create intersection array from two arrays
+const findIntersection = function(firstList,secondList){
+  let commonNumbers = [];
+  for(let number of firstList){
+    secondList.includes(number) && commonNumbers.push(number);
+  }
+  return commonNumbers;
+}
+exports.findIntersection = findIntersection;
