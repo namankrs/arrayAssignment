@@ -3,8 +3,8 @@ let arrayFunctions = require("./lib.js");
 
 let {createReverseFibonacciSeries,extractAlternatingElements,reverseList,addNumbers,filterNumbers} = arrayFunctions;
 let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers} = arrayFunctions;
-let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending,extractDigits,extractUniques,unifyElements,findIntersection,filterDifferences,isSubset} = arrayFunctions;
-
+let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending} = arrayFunctions;
+let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferences,isSubset,zipNumbers} = arrayFunctions;
 //-----------------------------------------------  //tests for sorting numbers
 {
   {
@@ -387,4 +387,14 @@ let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscen
 
   
 
+}
+
+//-----------tests for creating a zip array of two arrays
+{
+  const testZipNumbers = function(list1,list2,expectedOutput){
+    assert.deepEqual(zipNumbers(list1,list2),expectedOutput);
+  }
+  
+  testZipNumbers([1,2],[3,4],[[1,3],[2,4]]);
+  testZipNumbers([1,3,2],[3,5,4],[[1,3],[3,5],[2,4]]);
 }

@@ -300,7 +300,7 @@ const filterDifferences = function(firstList,secondList){
 }
 exports.filterDifferences = filterDifferences;
 
-//test to check whether a set is a proper subset of another set or not
+//function to check whether a set is a proper subset of another set or not
 const isSubset = function(list2,list1){
   let result = true;
   for(number of list2){
@@ -309,3 +309,14 @@ const isSubset = function(list2,list1){
   return result;
 }
 exports.isSubset = isSubset;
+
+//function to zip two arrays
+const zipNumbers = function(list1,list2){
+  length = Math.min(list1.length,list2.length);
+  let zippedNumbers = [];
+  for(let index=0; index<length; index++){
+    zippedNumbers[index] = [list1[index],list2[index]];
+  }
+  return zippedNumbers;
+}
+exports.zipNumbers = zipNumbers;
