@@ -281,8 +281,8 @@ exports.isOrderDescending = isOrderDescending;
 
 //function to extract digits of a number in an array
 const extractDigits = function(number){
-  let numberString = number.toString();
   let numbers = [];
+  let numberString = number.toString();
   for(let digits of numberString){
     numbers.push(+digits);
   }
@@ -290,43 +290,42 @@ const extractDigits = function(number){
 }
 exports.extractDigits = extractDigits;
 
+function ifNotIncludes(uniques,element){
+  if(!uniques.includes(element)) uniques.push(element)
+  return uniques;
+}
+
 //function to extract unique elements from an array
 const extractUniques = function(numbers){
-  let uniqueNumbers = [];
-  for(number of numbers){
-    !uniqueNumbers.includes(number) && uniqueNumbers.push(number);
-}
-return uniqueNumbers;
+  uniqueNumbers = numbers.reduce(ifNotIncludes,[])
+  return uniqueNumbers;
 }
 exports.extractUniques = extractUniques;
 
 //function to create union array from two arrays
 const unifyElements = function(firstList,secondList){
-  let unionList = firstList;
-  for(let number of secondList){
-    unionList.push(number);
-  }
-  unionList = extractUniques(unionList);
+  let unionList = firstList.concat(secondList);
+  unionList = unionList.reduce(ifNotIncludes,[]);
   return unionList;
 }
 exports.unifyElements = unifyElements;
 
 //function to create intersection array from two arrays
 const findIntersection = function(firstList,secondList){
-  let commonNumbers = [];
-  for(let number of firstList){
-    secondList.includes(number) && commonNumbers.push(number);
+  function ifIncludes(element){
+    return secondList.includes(element);
   }
-  return commonNumbers;
+  commonElements = firstList.filter(ifIncludes);
+  return commonElements;
 }
 exports.findIntersection = findIntersection;
 
 //function to find unique elements in first array only i.e difference of two arrays
 const filterDifferences = function(firstList,secondList){
-  let uniques = [];
-  for(number of firstList){
-    !secondList.includes(number) && uniques.push(number);
+  function ifNotIncludes(element){
+    return !secondList.includes(element);
   }
+  uniques = firstList.filter(ifNotIncludes)
   return uniques;
 }
 exports.filterDifferences = filterDifferences;
@@ -363,12 +362,10 @@ exports.rotateElements = rotateElements;
 
 //function to partition a array based on a value
 const splitNumbers = function(numbers,value){
-  let firstPart = [];
-  let lastPart = [];
-  for(let number of numbers){
-    number<=value && firstPart.push(number);
-    number>value && lastPart.push(number);
-  }
-  return [firstPart,lastPart];
+  isGreater = isGreaterGenerator(value)
+  isSmaller = isLowerGenerator(value+1);
+  firstPart = numbers.filter(isGreater);
+  lastPart = numbers.filter(isSmaller);
+  return [lastPart,firstPart];
 }
 exports.splitNumbers = splitNumbers;
