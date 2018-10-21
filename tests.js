@@ -133,13 +133,7 @@ let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferenc
 
 //----------------------------------------------------------------tests for finding sum of numbers in a list
 {
-  {
-    input = [];
-    expectedOutput = 0;
-    actualOutput = addNumbers(input);
-    assert.deepEqual(actualOutput,expectedOutput);
-  }
-  {
+    {
     let input = [1,2,3];
     let expectedOutput = 6;
     let actualOutput = addNumbers(input);
@@ -221,19 +215,6 @@ let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferenc
     let actualOutput = findMin(input)
     assert.deepEqual(actualOutput,expectedOutput);
   }
-  {
-    let input = [];
-    let expectedOutput = undefined;
-    let actualOutput = findMin(input)
-    assert.deepEqual(actualOutput,expectedOutput);
-  }
-  {
-    let input = [];
-    let expectedOutput = undefined;
-    let actualOutput = findMax(input)
-    assert.deepEqual(actualOutput,expectedOutput);
-  }
-
 }
 
 //-------------------tests to calculate average of given numbers

@@ -76,6 +76,18 @@ const insertElement = function(array,index,element){
 }
 exports.insertElement = insertElement;
 
+function isEven(number){
+  if(number%2 == 0) return true;
+  return false;
+}
+
+function isOdd(number){
+  if(number%2 != 0) return true;
+  return false;
+}
+
+
+
 //function to filter odd and even elements.
 const filterNumbers = function(numbers,choice){
   if(choice != "even" && choice !="odd"){
@@ -85,46 +97,43 @@ const filterNumbers = function(numbers,choice){
   let split = [];
   split[0] = "even";
   split[1] = "odd";
-  classifiedNumbers["even"] = [];
-  classifiedNumbers["odd"] = [];
-  let length = numbers.length
-  for(let index=0; index<length; index++){
-    let remainder = numbers[index]%2
-    classifiedNumbers[split[remainder]].push(numbers[index]); 
-  }
+  classifiedNumbers["even"] = numbers.filter(isEven);
+  classifiedNumbers["odd"] = numbers.filter(isOdd);
   return classifiedNumbers[choice];
 }
 exports.filterNumbers=filterNumbers;
 
+function sum(a,b){
+  return a+b;
+}
+
 //function for finding sum of numbers in a list
 const addNumbers = function(numbers){
-  let sum = 0;
-  for(number of numbers){
-    sum+= number;
-  }
-  return sum;
+  let result = numbers.reduce(sum);
+  return result;
 }
-exports.addNumbers = addNumbers;let sum = 0;
+exports.addNumbers = addNumbers;
 
 //function to print the return a list of numbers in reverse order
 const reverseList = function(list){
-  let reversedList = [];
-  for (number of list){
-    reversedList.unshift(number);
+  function insertElement(result,element){
+    result.unshift(element);
+    return result;   
   }
-return reversedList;
+  reversedList = list.reduce(insertElement,[]);
+  return reversedList;
 }
 exports.reverseList = reverseList;
 
+function isIndexEven(element,index){
+  if(index%2==0) return true;
+  return false;
+}
+    
 //function to return every second element of an array
 const extractAlternatingElements = function(numbers){
-  let extractedElements = {};
-  extractedElements[1] = [];
-  extractedElements[0] = [];
-  for(index in numbers){
-    extractedElements[index%2].push(numbers[index]);
-  }
-  return extractedElements[0];
+  extractedElements = numbers.filter(isIndexEven)
+  return extractedElements;
 }
 exports.extractAlternatingElements = extractAlternatingElements;
 
@@ -149,32 +158,44 @@ const createReverseFibonacciSeries = function(noOfTerms){
 }
 exports.createReverseFibonacciSeries = createReverseFibonacciSeries;
 
+function findGreater(a,b){
+  if(a>b) return a;
+  return b;
+}
+
+function findSmaller(a,b){
+  if(a<b) return a;
+  return b;
+}
+
 //function to determine greatest number in a list
 const findMax = function(numbers){
-    return sortNumbers(numbers,"ascending").pop();
+  greatestNumber = numbers.reduce(findGreater)
+  return greatestNumber;
 }
 exports.findMax = findMax;
 
 //function to determine smallest number in a list
 const findMin = function(numbers){
-    return sortNumbers(numbers,"descending").pop();
+  smallestNumber = numbers.reduce(findSmaller);
+  return smallestNumber;
 }
 exports.findMin = findMin;
 
 //function to calculate average of numbers
 const calculateAverage = function(numbers){
-  average = addNumbers(numbers)/numbers.length;
-  average = average.toFixed(2);
+  average = numbers.reduce(sum)/numbers.length;
   return average;
 }
 exports.calculateAverage = calculateAverage;
 
+function findLength(string){
+  return string.length;
+}
+
 //function to calculate lengths of given strings
 const getLengths = function(strings){
-  let lengths = [];
-  for(string of strings){
-    lengths.push(string.length)
-  }
+  lengths = strings.map(findLength);
   return lengths;
 }
 exports.getLengths = getLengths;
