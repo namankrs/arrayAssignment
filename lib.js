@@ -216,12 +216,17 @@ const countEvenNumbers = function(numbers){
 }
 exports.countEvenNumbers = countEvenNumbers;
 
+function isGreaterGenerator(threshold){
+  return function(number){
+    if(number>threshold) return true;
+    return false;
+  }
+}
+
 //function to count numbers above certain threshold
 const countNumbersAbove = function(numbers,threshold){
-  let count = 0;
-  for(number of numbers){
-    number>threshold && count++;
-  }
+  isGreater = isGreaterGenerator(threshold);
+  count = numbers.filter(isGreater).length;
   return count;
 }
 exports.countNumbersAbove = countNumbersAbove;
