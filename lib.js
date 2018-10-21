@@ -223,6 +223,13 @@ function isGreaterGenerator(threshold){
   }
 }
 
+function isLowerGenerator(threshold){
+  return function(number){
+    if(number<threshold) return true;
+    return false;
+  }
+}
+
 //function to count numbers above certain threshold
 const countNumbersAbove = function(numbers,threshold){
   isGreater = isGreaterGenerator(threshold);
@@ -233,10 +240,8 @@ exports.countNumbersAbove = countNumbersAbove;
 
 //function to count numbers below certain threshold
 const countNumbersBelow = function(numbers,threshold){
-  let count = 0;
-  for(number of numbers){
-    number<threshold && count++;
-  }
+  isLower = isLowerGenerator(threshold);
+  count = numbers.filter(isLower).length
   return count;
 }
 exports.countNumbersBelow = countNumbersBelow;
