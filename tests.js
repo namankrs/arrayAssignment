@@ -4,7 +4,8 @@ let arrayFunctions = require("./lib.js");
 let {createReverseFibonacciSeries,extractAlternatingElements,reverseList,addNumbers,filterNumbers} = arrayFunctions;
 let {insertElement,deleteElement,sortNumbers,findMax,findMin,calculateAverage,getLengths,countOddNumbers} = arrayFunctions;
 let {countEvenNumbers,countNumbersAbove,countNumbersBelow,findIndex,isOrderAscending,isOrderDescending} = arrayFunctions;
-let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferences,isSubset,zipNumbers,rotateElements,splitNumbers} = arrayFunctions;
+let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferences,isSubset,zipNumbers} = arrayFunctions;
+let {rotateElements,splitNumbers,map,filter,isEven} = arrayFunctions;
 //-----------------------------------------------  //tests for sorting numbers
 {
   {
@@ -397,6 +398,26 @@ let {extractDigits,extractUniques,unifyElements,findIntersection,filterDifferenc
   }
   testSplitNumbers([1,2,3,4],2,[[1,2],[3,4]])
   testSplitNumbers([1,5,8,6,7,2,3,4],5,[[1,5,2,3,4],[8,6,7]])
+}
+
+//------------------test for map()
+{
+  const testMap = function(mapper,list,expectedOutput){
+    assert.deepEqual(map(mapper,list),expectedOutput);
+  }
+  testMap(x=>x+2,[1,2,3],[3,4,5]);
+  testMap(x=>x.length,["naman","dheeraj"],[5,7]);
+  testMap(x=>x,["naman","dheeraj"],["naman","dheeraj"])
+}
+
+//------------------test for filter()
+{
+  const testMap = function(mapper,list,expectedOutput){
+    assert.deepEqual(filter(mapper,list),expectedOutput);
+  }
+  testMap(isEven,[1,2,3],[2]);
+  testMap(isEven,[],[]);
+  testMap(isEven,[1,2,3,4,5,6],[2,4,6]);
 }
 
 console.log('All tests passed');

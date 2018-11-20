@@ -369,3 +369,27 @@ const splitNumbers = function(numbers,value){
   return [lastPart,firstPart];
 }
 exports.splitNumbers = splitNumbers;
+
+//function to replicate map()
+const map = function(mapper,list){
+  let processedList = [];
+  for(item of list){
+    processedList.push(mapper(item));
+    }
+  return processedList;
+}
+exports.map = map;
+
+//function to replicate filter()
+const filter = function(mapper,list){
+  let processedList = [];
+  for(item of list){
+    if(mapper(item))
+      processedList.push(item);
+  }
+  return processedList;  
+}
+exports.filter = filter;
+exports.isEven = isEven;
+
+//
